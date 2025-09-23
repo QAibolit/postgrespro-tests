@@ -20,10 +20,10 @@ public class BaseTest {
         Configuration.baseUrl = projectConfig.baseUrl();
         Configuration.pageLoadStrategy = projectConfig.pageLoadStrategy();
         Configuration.timeout = projectConfig.timeout();
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.remote = System.getProperty("remoteUrl");
+        Configuration.browser = System.getProperty("browser", projectConfig.browser());
+        Configuration.browserVersion = System.getProperty("browserVersion", projectConfig.browserVersion());
+        Configuration.browserSize = System.getProperty("browserSize", projectConfig.browserSize());
+        Configuration.remote = System.getProperty("remoteUrl", projectConfig.selenoidUrl());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

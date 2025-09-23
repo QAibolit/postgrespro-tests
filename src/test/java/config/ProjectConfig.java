@@ -22,11 +22,17 @@ public interface ProjectConfig extends Config {
     @Key("browser.version")
     String browserVersion();
 
+    @Key("browser.size")
+    String browserSize();
+
     @Key("page.load.strategy")
     String pageLoadStrategy();
 
     @Key("timeout")
     long timeout();
+
+    @Key("selenoid.url")
+    String selenoidUrl();
 
     @Key("remote.url")
     String remoteUrl();

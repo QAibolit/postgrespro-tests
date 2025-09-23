@@ -25,7 +25,7 @@ public class MainPage {
             resourcesButton = $("header").$(byText("Ресурсы")),
             educationButton = $("header").$(byText("Образование")),
             careerButton = $("header").$(byText("Карьера")),
-            searchButton = $("button[aria-label='Открыть поиск']"),
+            searchButton = $("button[aria-label='Открыть поиск']").parent(),
             testingButton = $("header").$(byText("Протестировать")),
             searchInput = $("input[placeholder='Поиск']"),
             shadowMenu = $(".group  div[data-radix-popper-content-wrapper]");
@@ -80,21 +80,21 @@ public class MainPage {
     @Step("Навести курсор на кнопку 'О компании' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverAboutCompanyButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.aboutCompanyButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).click();
+        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
     @Step("Навести курсор на кнопку 'Ресурсы' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverResourcesButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.resourcesButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).click();
+        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
     @Step("Навести курсор на кнопку 'Образование' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverEducationButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.educationButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).click();
+        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
