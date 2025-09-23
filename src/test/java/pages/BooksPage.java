@@ -8,12 +8,11 @@ import java.util.List;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class BooksPage {
 
-    private final SelenideElement header = $(".h1-tray h1");
+    private final SelenideElement header = $$("h1").first();
 
     private final ElementsCollection books = $$(".content h3");
 

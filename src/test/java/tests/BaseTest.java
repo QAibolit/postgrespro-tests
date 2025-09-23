@@ -23,14 +23,16 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", projectConfig.browser());
         Configuration.browserVersion = System.getProperty("browserVersion", projectConfig.browserVersion());
         Configuration.browserSize = System.getProperty("browserSize", projectConfig.browserSize());
-        Configuration.remote = System.getProperty("remoteUrl", projectConfig.selenoidUrl());
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", projectConfig.enableVnc(),
-                "enableVideo", projectConfig.enableVideo()
-        ));
-        Configuration.browserCapabilities = capabilities;
+        if (projectConfig.remote()) {
+            Configuration.remote = System.getProperty("remoteUrl");
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", projectConfig.enableVnc(),
+                    "enableVideo", projectConfig.enableVideo()
+            ));
+            Configuration.browserCapabilities = capabilities;
+        }
 
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
@@ -40,7 +42,7 @@ public class BaseTest {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        if (projectConfig.enableVideo()) {
+        if (projectConfig.remote() && projectConfig.enableVideo()) {
             Attach.addVideo();
         }
         closeWebDriver();

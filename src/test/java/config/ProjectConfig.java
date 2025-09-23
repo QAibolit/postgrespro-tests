@@ -13,6 +13,9 @@ public interface ProjectConfig extends Config {
 
     ProjectConfig projectConfig = ConfigFactory.create(ProjectConfig.class);
 
+    @Key("remote")
+    boolean remote();
+
     @Key("base.url")
     String baseUrl();
 
@@ -30,9 +33,6 @@ public interface ProjectConfig extends Config {
 
     @Key("timeout")
     long timeout();
-
-    @Key("selenoid.url")
-    String selenoidUrl();
 
     @Key("remote.url")
     String remoteUrl();

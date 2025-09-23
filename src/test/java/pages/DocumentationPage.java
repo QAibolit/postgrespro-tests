@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DocumentationPage {
 
-    private final SelenideElement header = $(".h1-tray h1");
+    private final SelenideElement header = $$("h1").first();
 
     private final ElementsCollection sectionHeaders = $$("h3");
 
