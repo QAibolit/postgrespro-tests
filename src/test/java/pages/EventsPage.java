@@ -1,16 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-@Epic("Сайт 'PostgresPro'")
-@Feature("Главная страница")
 public class EventsPage {
 
     private final SelenideElement header = $("a h1"),

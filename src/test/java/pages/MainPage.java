@@ -22,9 +22,7 @@ public class MainPage {
             testingButton = $("header").$(byText("Протестировать")),
             searchInput = $("input[placeholder='Поиск']"),
             aboutCompanyButton = $("a[href='/about']"),
-            aboutProductButton = $(byText("Узнать о продукте")).parent().parent(),
-            footerBooksButton = $("footer a[target='/education/books']"),
-            footerDocumentationButton = $("footer a[target='/docs']");
+            aboutProductButton = $(byText("Узнать о продукте")).parent().parent();
 
     @Step("Открыть главную страницу")
     public MainPage openPage() {
@@ -75,20 +73,6 @@ public class MainPage {
     @Step("Нажать на кнопку 'О компании'")
     public <NextPage> NextPage clickAboutCompanyButton(Class<NextPage> pageClass) {
         this.aboutCompanyButton.shouldBe(visible).scrollTo().click();
-        return page(pageClass);
-    }
-
-    @Step("Нажать на кнопку 'Книги' в футере")
-    public <NextPage> NextPage clickFooterBooksButton(Class<NextPage> pageClass) {
-        this.footerBooksButton.scrollTo().shouldBe(visible).click();
-        Selenide.switchTo().window(1);
-        return page(pageClass);
-    }
-
-    @Step("Нажать на кнопку 'Документация' в футере")
-    public <NextPage> NextPage clickFooterDocumentationButton(Class<NextPage> pageClass) {
-        this.footerDocumentationButton.scrollTo().shouldBe(visible).click();
-        Selenide.switchTo().window(1);
         return page(pageClass);
     }
 
