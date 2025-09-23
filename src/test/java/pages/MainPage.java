@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.ProductsComponent;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -44,7 +45,7 @@ public class MainPage {
 
     @Step("Нажать на кнопку 'Продукты' в меню")
     public MainPage clickProductButton() {
-        this.productButton.click();
+        this.productButton.shouldBe(visible).click();
         this.productsComponent.shouldBeVisible();
         return this;
     }
@@ -67,34 +68,34 @@ public class MainPage {
 
     @Step("Нажать на кнопку 'Кейсы' в меню")
     public CasesPage clickCasesButton() {
-        this.casesButton.click();
+        this.casesButton.shouldBe(visible).click();
         return new CasesPage();
     }
 
     @Step("Нажать на кнопку 'Мероприятия' в меню")
     public EventsPage clickEventsButton() {
-        this.eventsButton.click();
+        this.eventsButton.shouldBe(visible).click();
         return new EventsPage();
     }
 
     @Step("Навести курсор на кнопку 'О компании' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverAboutCompanyButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.aboutCompanyButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
+        this.shadowMenuLinks.shouldBe(sizeGreaterThan(0)).find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
     @Step("Навести курсор на кнопку 'Ресурсы' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverResourcesButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.resourcesButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
+        this.shadowMenuLinks.shouldBe(sizeGreaterThan(0)).find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
     @Step("Навести курсор на кнопку 'Образование' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverEducationButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.educationButton.hover();
-        this.shadowMenuLinks.find(text(linkText)).shouldBe(visible).click();
+        this.shadowMenuLinks.shouldBe(sizeGreaterThan(0)).find(text(linkText)).shouldBe(visible).click();
         return page(pageClass);
     }
 
