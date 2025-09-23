@@ -22,9 +22,6 @@ public interface ProjectConfig extends Config {
     @Key("browser.version")
     String browserVersion();
 
-    @Key("browser.size")
-    String browserSize();
-
     @Key("page.load.strategy")
     String pageLoadStrategy();
 
