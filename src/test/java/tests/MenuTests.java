@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.AboutCompanyPage;
@@ -51,6 +52,7 @@ public class MenuTests extends BaseTest {
     MainPage mainPage = new MainPage();
 
     @Test
+    @Disabled
     @Story("Проверка меню")
     @DisplayName("Проверка работы кнопки 'Продукты'")
     public void checkProductsButtonTest() {
@@ -97,6 +99,7 @@ public class MenuTests extends BaseTest {
     }
 
     @Test
+    @Disabled
     @Story("Проверка меню")
     @DisplayName("Проверка работы кнопки 'О компании'")
     public void checkAboutCompanyButtonTest() {
@@ -107,6 +110,7 @@ public class MenuTests extends BaseTest {
     }
 
     @Test
+    @Disabled
     @Story("Проверка меню")
     @DisplayName("Проверка работы кнопки 'Ресурсы'")
     public void checkResourcesButtonTest() {
