@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class ProductsComponent {
 
-    private final SelenideElement root = $("[class*='Header_headerProductMenu']");
+    private final SelenideElement root = $("[class*='Header_headerProductMenu'] .items-start");
 
     private final ElementsCollection sideMenuButtons = $$("[class*='Header_headerProductMenu'] li"),
             contentCards = $$("[class*='Header_headerProductMenu'] .contents a");
