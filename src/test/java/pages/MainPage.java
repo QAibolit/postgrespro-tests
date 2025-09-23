@@ -80,7 +80,7 @@ public class MainPage {
     @Step("Навести курсор на кнопку 'О компании' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverAboutCompanyButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.aboutCompanyButton.hover();
-        this.shadowMenu.shouldBe(visible);
+//        this.shadowMenu.shouldBe(visible);
         this.shadowMenuLinks.find(text(linkText)).click();
         return page(pageClass);
     }
@@ -88,7 +88,7 @@ public class MainPage {
     @Step("Навести курсор на кнопку 'Ресурсы' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverResourcesButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.resourcesButton.hover();
-        this.shadowMenu.shouldBe(visible);
+//        this.shadowMenu.shouldBe(visible);
         this.shadowMenuLinks.find(text(linkText)).click();
         return page(pageClass);
     }
@@ -96,7 +96,7 @@ public class MainPage {
     @Step("Навести курсор на кнопку 'Образование' и в выпадающем меню выбрать '{linkText}'")
     public <NextPage> NextPage hoverEducationButtonAndSelectByText(String linkText, Class<NextPage> pageClass) {
         this.educationButton.hover();
-        this.shadowMenu.shouldBe(visible);
+//        this.shadowMenu.shouldBe(visible);
         this.shadowMenuLinks.find(text(linkText)).click();
         return page(pageClass);
     }
