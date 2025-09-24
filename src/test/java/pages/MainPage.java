@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
 
 public class MainPage {
 
@@ -65,15 +64,15 @@ public class MainPage {
     }
 
     @Step("Нажать на кнопку 'Узнать о продукте'")
-    public <NextPage> NextPage clickProductButton(Class<NextPage> pageClass) {
+    public ProductPage clickProductButton() {
         this.aboutProductButton.shouldBe(visible).scrollTo().click();
-        return page(pageClass);
+        return new ProductPage();
     }
 
     @Step("Нажать на кнопку 'О компании'")
-    public <NextPage> NextPage clickAboutCompanyButton(Class<NextPage> pageClass) {
+    public AboutCompanyPage clickAboutCompanyButton() {
         this.aboutCompanyButton.shouldBe(visible).scrollTo().click();
-        return page(pageClass);
+        return new AboutCompanyPage();
     }
 
 }

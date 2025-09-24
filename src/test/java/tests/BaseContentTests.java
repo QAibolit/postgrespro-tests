@@ -26,7 +26,7 @@ public class BaseContentTests extends BaseTest {
     @DisplayName("Проверка работы кнопки 'О компании'")
     public void checkAboutCompanyButtonTest() {
         mainPage.openPage()
-                .clickAboutCompanyButton(AboutCompanyPage.class)
+                .clickAboutCompanyButton()
                 .checkPageHeader(aboutCompanyHeader)
                 .checkCompanyInfo(aboutCompanyInfo);
     }
@@ -36,7 +36,7 @@ public class BaseContentTests extends BaseTest {
     @DisplayName("Проверка работы кнопки 'Узнать о продукте'")
     public void checkProductsButtonTest() {
         mainPage.openPage()
-                .clickProductButton(ProductPage.class)
+                .clickProductButton()
                 .checkPageHeader(productHeader)
                 .checkConsultationButton(consultationLink)
                 .checkLicenseRulesButton(licenseRulesLink);
